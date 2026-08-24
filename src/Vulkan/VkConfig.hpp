@@ -79,7 +79,9 @@ static_assert(MAX_IMAGE_LEVELS_2D <= sw::MIPMAP_LEVELS);
 static_assert(MAX_IMAGE_LEVELS_3D <= sw::MIPMAP_LEVELS);
 static_assert(MAX_IMAGE_LEVELS_CUBE <= sw::MIPMAP_LEVELS);
 
-constexpr uint32_t MAX_BOUND_DESCRIPTOR_SETS = 4;
+// PICO Spatial's compositor uses five descriptor sets. Adreno devices expose
+// more than Vulkan's minimum of four, so match that capability in software.
+constexpr uint32_t MAX_BOUND_DESCRIPTOR_SETS = 8;
 constexpr uint32_t MAX_VERTEX_INPUT_BINDINGS = 16;
 constexpr uint32_t MAX_PUSH_CONSTANT_SIZE = 128;
 constexpr uint32_t MAX_UPDATE_AFTER_BIND_DESCRIPTORS = 500000;

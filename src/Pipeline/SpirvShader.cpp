@@ -538,10 +538,6 @@ Spirv::Spirv(
 			UNSUPPORTED("SPIR-V Int16 or Int64 Capability (OpSConvert)");
 			break;
 
-		case spv::OpUConvert:
-			UNSUPPORTED("SPIR-V Int16 or Int64 Capability (OpUConvert)");
-			break;
-
 		case spv::OpLoad:
 		case spv::OpAccessChain:
 		case spv::OpInBoundsAccessChain:
@@ -661,6 +657,7 @@ Spirv::Spirv(
 		case spv::OpConvertFToS:
 		case spv::OpConvertSToF:
 		case spv::OpConvertUToF:
+		case spv::OpUConvert:
 		case spv::OpBitcast:
 		case spv::OpSelect:
 		case spv::OpIsInf:

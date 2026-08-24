@@ -263,6 +263,9 @@ void SpirvEmitter::EmitUnaryOp(Spirv::InsnIterator insn)
 		case spv::OpConvertUToF:
 			dst.move(i, SIMD::Float(src.UInt(i)));
 			break;
+		case spv::OpUConvert:
+			dst.move(i, src.UInt(i));
+			break;
 		case spv::OpBitcast:
 			dst.move(i, src.Float(i));
 			break;

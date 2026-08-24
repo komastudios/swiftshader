@@ -903,7 +903,10 @@ public:
 	const Object &getObject(Object::ID id) const
 	{
 		auto it = defs.find(id);
-		ASSERT_MSG(it != defs.end(), "Unknown object %d", id.value());
+		if(it == defs.end())
+		{
+			abort("SwiftShader: unknown SPIR-V object %d", id.value());
+		}
 		return it->second;
 	}
 
